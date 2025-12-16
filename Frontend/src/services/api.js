@@ -1,4 +1,4 @@
-const API_BASE_URL = `${process.env.REACT_APP_BACKEND_URL}/api`;
+const API_BASE_URL = `${process.env.REACT_APP_BACKEND_URL || 'https://e-commerce-for-gadgets-1.onrender.com'}/api`;
 
 const getAuthToken = () => {
   // Try both storage keys for compatibility
