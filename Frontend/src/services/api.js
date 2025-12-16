@@ -20,15 +20,24 @@ const apiRequest = async (endpoint, options = {}) => {
       ...options,
     };
 
-    const response = await fetch(`${API_BASE_URL}${endpoint}`, config);
+    const fullUrl = `${API_BASE_URL}${endpoint}`;
+    console.log('🔗 API Request:', fullUrl);
+    console.log('🌐 Backend URL:', process.env.REACT_APP_BACKEND_URL);
+    
+    const response = await fetch(fullUrl, config);
+    
+    console.log('📡 Response status:', response.status);
     
     if (!response.ok) {
+      const errorText = await response.text();
+      console.error('❌ API Error:', errorText);
       throw new Error(`Server error: ${response.status}`);
     }
     
     return response.json();
   } catch (error) {
-    console.error('API Request failed:', error);
+    console.error('💥 API Request failed:', error);
+    console.error('🔧 Check if backend URL is correct:', API_BASE_URL);
     throw error;
   }
 };
