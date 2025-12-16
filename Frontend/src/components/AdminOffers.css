@@ -1,0 +1,301 @@
+/* DARK THEME (DEFAULT) */
+.admin-offers {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+/* LIGHT THEME */
+.light-theme.admin-offers {
+  color: #111827;
+}
+
+.admin-offers-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.admin-offers-header h1 {
+  color: white;
+  margin: 0;
+}
+
+.light-theme .admin-offers-header h1 {
+  color: #111827;
+}
+
+.add-offer-btn {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.add-offer-btn:hover {
+  background: #0056b3;
+}
+
+.offer-form-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.offer-form {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 30px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.light-theme .offer-form {
+  background: white;
+  border: none;
+  color: #111827;
+}
+
+.offer-form h2 {
+  margin-bottom: 20px;
+  color: white;
+}
+
+.light-theme .offer-form h2 {
+  color: #111827;
+}
+
+.offer-form input,
+.offer-form textarea,
+.offer-form select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  font-size: 16px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  box-sizing: border-box;
+}
+
+.offer-form input::placeholder,
+.offer-form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.light-theme .offer-form input,
+.light-theme .offer-form textarea,
+.light-theme .offer-form select {
+  border: 1px solid #ddd;
+  background: white;
+  color: #111827;
+}
+
+.light-theme .offer-form input::placeholder,
+.light-theme .offer-form textarea::placeholder {
+  color: #666;
+}
+
+.offer-form textarea {
+  height: 80px;
+  resize: vertical;
+}
+
+.form-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.form-buttons button {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.form-buttons button[type="submit"] {
+  background: #28a745;
+  color: white;
+}
+
+.form-buttons button[type="button"] {
+  background: #6c757d;
+  color: white;
+}
+
+.offers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.admin-offer-card {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s;
+  backdrop-filter: blur(10px);
+}
+
+.light-theme .admin-offer-card {
+  border: 1px solid #ddd;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.admin-offer-card:hover {
+  transform: translateY(-2px);
+}
+
+.admin-offer-card:hover .offer-info h3 {
+  color: #000000;
+  font-weight: 800;
+}
+
+.admin-offer-card:hover .description {
+  color: #111827;
+  font-weight: 600;
+}
+
+.admin-offer-card:hover .code {
+  color: #000000;
+  font-weight: 700;
+}
+
+.offer-info h3 {
+  margin: 0 0 10px 0;
+  color: white;
+  font-size: 18px;
+}
+
+.light-theme .offer-info h3 {
+  color: #111827;
+}
+
+.discount {
+  font-size: 24px;
+  font-weight: bold;
+  color: #667eea;
+  margin: 10px 0;
+}
+
+.light-theme .discount {
+  color: #28a745;
+}
+
+.code {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-family: monospace;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 10px 0;
+}
+
+.light-theme .code {
+  background: #f8f9fa;
+  color: #495057;
+}
+
+.description {
+  color: rgba(255, 255, 255, 0.8);
+  margin: 10px 0;
+  line-height: 1.4;
+}
+
+.light-theme .description {
+  color: #374151;
+}
+
+.valid-until {
+  color: #ff6b6b;
+  font-weight: 600;
+  margin: 10px 0;
+}
+
+.light-theme .valid-until {
+  color: #dc3545;
+}
+
+.offer-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.edit-btn {
+  background: #ffc107;
+  color: #212529;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  flex: 1;
+}
+
+.delete-btn {
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  flex: 1;
+}
+
+.edit-btn:hover {
+  background: #e0a800;
+}
+
+.delete-btn:hover {
+  background: #c82333;
+}
+
+@media (max-width: 768px) {
+  .admin-offers {
+    padding: 15px;
+  }
+  
+  .admin-offers-header {
+    flex-direction: column;
+    gap: 15px;
+    align-items: stretch;
+  }
+  
+  .offers-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .offer-form {
+    width: 95%;
+    padding: 20px;
+  }
+}
