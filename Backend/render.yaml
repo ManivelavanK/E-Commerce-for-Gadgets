@@ -2,8 +2,19 @@ services:
   - type: web
     name: mani-gadgets-backend
     env: node
+    region: oregon
+    plan: free
     buildCommand: npm install
     startCommand: npm start
+    healthCheckPath: /health
     envVars:
       - key: NODE_ENV
         value: production
+      - key: PORT
+        value: 10000
+      - key: MONGO_URI
+        value: mongodb+srv://manivelavan420534_db_user:tQ22teVHHdfKP1YY@cluster0.vjvarcp.mongodb.net/manisgadgets?retryWrites=true&w=majority&appName=Cluster0
+      - key: JWT_SECRET
+        value: your_super_secret_jwt_key_here_make_it_long_and_secure_123456789
+      - key: FRONTEND_URL
+        value: https://mani-gadgets-frontend.onrender.com

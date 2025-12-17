@@ -13,38 +13,51 @@ console.log('- MONGO_URI:', process.env.MONGO_URI ? '✅ Set' : '❌ Missing');
 console.log('- JWT_SECRET:', process.env.JWT_SECRET ? '✅ Set' : '❌ Missing');
 console.log('- NODE_ENV:', process.env.NODE_ENV);
 console.log('- PORT:', process.env.PORT);
+console.log('- FRONTEND_URL:', process.env.FRONTEND_URL);
 
 const { connectDB } = require('./config/database');
 
 const app = express();
 
-// CORS configuration
+// Trust proxy for Render deployment
+app.set('trust proxy', 1);
+
+// CORS configuration for production
+const allowedOrigins = [
+  'http://localhost:5173',
+  'http://localhost:3000',
+  'http://127.0.0.1:5173',
+  'https://mani-gadgets-frontend.onrender.com',
+  process.env.FRONTEND_URL
+].filter(Boolean);
+
 app.use(cors({
   origin: function (origin, callback) {
-    // Allow requests with no origin (like mobile apps or curl requests)
+    // Allow requests with no origin (mobile apps, Postman, etc.)
     if (!origin) return callback(null, true);
     
-    const allowedOrigins = [
-      'http://localhost:5173', 
-      'http://localhost:3000', 
-      'http://127.0.0.1:5173',
-      'https://e-commerce-for-gadgets.onrender.com',
-      'https://e-commerce-for-gadgets-3.onrender.com',
-      'https://mani-gadgets-frontend.onrender.com',
-      process.env.FRONTEND_URL
-    ].filter(Boolean);
-    
-    if (allowedOrigins.indexOf(origin) !== -1 || origin.includes('onrender.com')) {
+    // Allow all Render.com subdomains and specified origins
+    if (allowedOrigins.includes(origin) || origin.includes('.onrender.com')) {
       callback(null, true);
     } else {
-      console.log('CORS blocked origin:', origin);
-      callback(null, true); // Allow all origins for now
+      console.log('⚠️ CORS origin not in whitelist:', origin);
+      // Allow in production to prevent blocking
+      callback(null, true);
     }
   },
-  credentials: false,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'HEAD'],
-  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Accept', 'Origin'],
-  exposedHeaders: ['Content-Length', 'X-Foo', 'X-Bar']
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
+  allowedHeaders: [
+    'Origin',
+    'X-Requested-With',
+    'Content-Type',
+    'Accept',
+    'Authorization',
+    'Cache-Control',
+    'Pragma',
+    'Access-Control-Allow-Origin'
+  ],
+  exposedHeaders: ['Content-Length', 'Authorization']
 }));
 
 app.use(express.json({ limit: '10mb' }));
