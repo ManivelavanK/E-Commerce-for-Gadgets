@@ -8,11 +8,19 @@ const app = express();
 
 // CORS configuration
 app.use(cors({
-  origin: true,
+  origin: [
+    'http://localhost:3000',
+    'http://localhost:5173',
+    'https://your-netlify-app.netlify.app',
+    /\.netlify\.app$/
+  ],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
+
+// Add preflight handling
+app.options('*', cors());
 
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true }));
