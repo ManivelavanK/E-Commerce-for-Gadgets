@@ -28,6 +28,9 @@ const userSchema = new mongoose.Schema({
   timestamps: true
 });
 
+// Disable automatic index creation to prevent duplicate warning
+userSchema.set('autoIndex', false);
+
 userSchema.pre('save', async function() {
   if (!this.isModified('password')) {
     return;
