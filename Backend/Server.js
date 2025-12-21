@@ -4,11 +4,6 @@ require('dotenv').config();
 
 const { connectDB } = require('./config/database');
 
-// Suppress mongoose duplicate index warnings
-process.env.SUPPRESS_NO_CONFIG_WARNING = 'true';
-const mongoose = require('mongoose');
-mongoose.set('suppressWarning.deprecation', true);
-
 const app = express();
 
 // CORS configuration
