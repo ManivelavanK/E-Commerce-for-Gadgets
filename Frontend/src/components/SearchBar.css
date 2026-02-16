@@ -1,0 +1,144 @@
+/* Search Bar Styles */
+.search-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.search-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px 50px 12px 16px;
+  border: 2px solid #e2e8f0;
+  border-radius: 25px;
+  font-size: 16px;
+  outline: none;
+  transition: all 0.3s ease;
+  background: white;
+}
+
+.search-input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.search-icon {
+  position: absolute;
+  right: 16px;
+  font-size: 18px;
+  color: #6b7280;
+  pointer-events: none;
+}
+
+.suggestions-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  max-height: 400px;
+  overflow-y: auto;
+  margin-top: 4px;
+}
+
+.suggestion-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.suggestion-item:last-child {
+  border-bottom: none;
+}
+
+.suggestion-item:hover,
+.suggestion-item.active {
+  background-color: #f8fafc;
+}
+
+.suggestion-image {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-right: 12px;
+}
+
+.suggestion-info {
+  flex: 1;
+}
+
+.suggestion-name {
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 2px;
+  font-size: 14px;
+}
+
+.suggestion-details {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+/* Dark Theme */
+.dark-theme .search-input {
+  background: #374151;
+  border-color: #4b5563;
+  color: white;
+}
+
+.dark-theme .search-input:focus {
+  border-color: #60a5fa;
+}
+
+.dark-theme .suggestions-dropdown {
+  background: #374151;
+  border-color: #4b5563;
+}
+
+.dark-theme .suggestion-item {
+  border-bottom-color: #4b5563;
+}
+
+.dark-theme .suggestion-item:hover,
+.dark-theme .suggestion-item.active {
+  background-color: #4b5563;
+}
+
+.dark-theme .suggestion-name {
+  color: white;
+}
+
+.dark-theme .suggestion-details {
+  color: #d1d5db;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .search-input {
+    font-size: 16px; /* Prevent zoom on iOS */
+    padding: 10px 40px 10px 14px;
+  }
+  
+  .suggestion-item {
+    padding: 10px 12px;
+  }
+  
+  .suggestion-image {
+    width: 35px;
+    height: 35px;
+  }
+}

@@ -1,0 +1,76 @@
+/* Stock Indicator Styles */
+.stock-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.stock-indicator.in-stock {
+  background: #dcfce7;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+}
+
+.stock-indicator.low-stock {
+  background: #fef3c7;
+  color: #92400e;
+  border: 1px solid #fde68a;
+}
+
+.stock-indicator.out-of-stock {
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+.stock-icon {
+  font-size: 10px;
+}
+
+.stock-message {
+  font-size: 11px;
+}
+
+/* Dark Theme */
+.dark-theme .stock-indicator.in-stock {
+  background: rgba(34, 197, 94, 0.2);
+  color: #4ade80;
+  border-color: rgba(34, 197, 94, 0.3);
+}
+
+.dark-theme .stock-indicator.low-stock {
+  background: rgba(245, 158, 11, 0.2);
+  color: #fbbf24;
+  border-color: rgba(245, 158, 11, 0.3);
+}
+
+.dark-theme .stock-indicator.out-of-stock {
+  background: rgba(239, 68, 68, 0.2);
+  color: #f87171;
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+/* Sizes */
+.stock-indicator.small {
+  padding: 2px 6px;
+  font-size: 10px;
+}
+
+.stock-indicator.large {
+  padding: 6px 12px;
+  font-size: 14px;
+}
+
+.stock-indicator.large .stock-icon {
+  font-size: 14px;
+}
+
+.stock-indicator.large .stock-message {
+  font-size: 13px;
+}
